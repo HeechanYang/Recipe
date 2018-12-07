@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Recipe</title>
 </head>
 <body>
@@ -13,8 +13,8 @@
         <th>Description</th>
     </tr>
     <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipe.id}">123</td>
-        <td th:text="${recipe.description}">description</td>
+        <td th:text="${recipe.getId()}">123</td>
+        <td th:text="${recipe.getDescription()}">description</td>
     </tr>
 </table>
 </body>

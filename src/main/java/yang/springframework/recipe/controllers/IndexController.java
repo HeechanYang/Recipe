@@ -1,8 +1,8 @@
 package yang.springframework.recipe.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import yang.springframework.recipe.models.Recipe;
 import yang.springframework.recipe.services.RecipeService;
 
@@ -18,15 +18,14 @@ public class IndexController {
     }
 
     @RequestMapping({"/","","index","index.html"})
-    public String index(){
+    public String index(Model model){
         Set<Recipe> recipeSet = recipeService.getRecipes();
 
         for(Recipe recipe : recipeSet){
             System.out.println(recipe.getId());
         }
 
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("recipes",recipeService.getRecipes());
+        model.addAttribute("recipes",recipeService.getRecipes());
         return "index";
     }
 }
