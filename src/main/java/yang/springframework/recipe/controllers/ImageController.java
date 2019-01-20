@@ -2,7 +2,6 @@ package yang.springframework.recipe.controllers;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,12 +27,12 @@ public class ImageController {
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/recipe/{id}/image")
-    public String showUploadForm(@PathVariable Long id, Model model) {
-        model.addAttribute("recipe", recipeService.findCommandById(id));
-
-        return "/recipe/imageuploadform";
-    }
+//    @GetMapping("/recipe/{id}/image")
+//    public String showUploadForm(@PathVariable Long id, Model model) {
+//        model.addAttribute("recipe", recipeService.findCommandById(id));
+//
+//        return "/recipe/imageuploadform";
+//    }
 
     @PostMapping("/recipe/{id}/image")
     public String handleImagePost(@PathVariable("id") Long id
