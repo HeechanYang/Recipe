@@ -11,6 +11,7 @@ import yang.springframework.recipe.exceptions.NotFoundException;
 @Slf4j
 @ControllerAdvice
 public class ControllerExceptionHandler {
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(NumberFormatException.class)
     public ModelAndView handleBadRequest(Exception exception) {

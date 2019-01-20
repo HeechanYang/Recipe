@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import yang.springframework.recipe.commands.RecipeCommand;
 import yang.springframework.recipe.services.RecipeService;
 
+import javax.validation.Valid;
+
 @Controller
 @Slf4j
 public class RecipeController {
@@ -39,7 +41,7 @@ public class RecipeController {
     }
 
     @PostMapping("/recipe")
-    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
+    public String saveOrUpdate(@Valid @ModelAttribute RecipeCommand command) {
         RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
 
         return "redirect:/recipe/" + savedCommand.getId() + "/show";
